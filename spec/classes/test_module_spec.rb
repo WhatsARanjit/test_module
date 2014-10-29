@@ -12,9 +12,9 @@ describe 'test_module' do
   context 'with custom foo param' do
     let :params do
       {
-        :foo => 'test'
+        :foo => 'mhe'
       }
     end
-    it { should contain_file('/tmp/test_module').with_content %r{test} }
+    it { should contain_file('/tmp/test_module').with_content %r{mhe} }
   end
 end
