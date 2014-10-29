@@ -1,13 +1,20 @@
 require 'spec_helper'
 
-describe 'test_module', :type => :class do
-  context 'using test_module class' do
-  it { should contain_file('/tmp/test_module').with(
-    'ensure' => 'file',
-    'owner'  => 'root',
-    'group'  => 'root'
-  ) }
+describe 'test_module' do
+  context 'normal checks' do
+    it { should contain_class('test_module') }
+    it { should contain_file('/tmp/test_module').with(
+      'ensure' => 'file',
+      'owner'  => 'root',
+      'group'  => 'root'
+    ) }
   end
-  it { should contain_file('/tmp/test_module').with_content %r{bar} }
+  context 'with custom foo param' do
+    let :params do
+      {
+        :foo => 'test'
+      }
+    end
+    it { should contain_file('/tmp/test_module').with_content %r{test} }
+  end
 end
-
