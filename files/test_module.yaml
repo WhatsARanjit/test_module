@@ -1,0 +1,9 @@
+---
+var1: test1
+var2: test2
+array1:
+  - stuff1
+  - stuff2
+hash1:
+  key1: value1
+  key2: value2
