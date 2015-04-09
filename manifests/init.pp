@@ -1,9 +1,9 @@
 class test_module (
-  $foo = 'bar',
+  $foo = $::test_module,
 ) {
 
   notify { 'test notification':
-    message => "The message is ${foo}.",
+    message => "The version is ${foo}.",
   }
 
   file { '/tmp/test_module':
