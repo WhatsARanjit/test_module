@@ -11,7 +11,7 @@ class test_module (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => $foo,
+    content => template('test_module/test_module_foo.erb'),
   }
 }
 
