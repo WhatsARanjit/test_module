@@ -6,7 +6,7 @@ class test_module::foo (
     ensure => file,
     owner  => 'root',
     group  => 'root',
-    mode   => '0644',
+    mode   => '0600',
     source => "puppet:///modules/${module_name}/test_module_foo.erb",
   }
 }
