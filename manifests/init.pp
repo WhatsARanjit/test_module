@@ -6,6 +6,8 @@ class test_module (
     message => "The version is ${foo}.",
   }
 
+  notify { "Version: ${foo}": }
+
   file { '/tmp/test_module':
     ensure  => file,
     owner   => 'root',
@@ -13,5 +15,15 @@ class test_module (
     mode    => '0644',
     content => template('test_module/test_module_foo.erb'),
   }
+
+  file { [ '/tmp/software', "/tmp/software/${foo}" ]:
+    ensure => directory,
+  }
+
+  file { '/tmp/current':
+    ensure => link,
+    target => "/tmp/software/${foo}",
+  }
+
 }
 
