@@ -3,7 +3,7 @@ class test_module (
 ) {
 
   notify { 'test notification':
-    message => "The version is ${foo}.",
+    message => "The version is definitely ${foo}.",
   }
 
   notify { "Version: ${foo}": }
